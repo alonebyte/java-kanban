@@ -12,6 +12,14 @@ public class Task {
         this.status = status;
     }
 
+    //конструктор для InMemoryHistoryManager
+    public Task(Task copy) {
+        this.name = copy.name;
+        this.description = copy.description;
+        this.id = copy.id;
+        this.status = copy.status;
+    }
+
     // Геттеры и сеттеры
     public String getName() {
         return name;

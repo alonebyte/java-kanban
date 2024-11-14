@@ -31,16 +31,16 @@ public class InMemoryTaskManager implements TaskManager,HistoryManager {
 
     @Override
     public Integer addNewSubtask(Subtask subtask) {
-        subtask.setId(generateId());
-        subtasks.put(subtask.getId(), subtask);
+            subtask.setId(generateId());
+            subtasks.put(subtask.getId(), subtask);
 
-        int epicId = subtask.getEpicId();
-        if (epics.containsKey(epicId)) {
-            Epic epic = epics.get(epicId);
-            epic.getSubtaskIds().add(subtask.getId());
-            recalculateEpicStatus(epicId);
-        }
-        return subtask.getId();
+            int epicId = subtask.getEpicId();
+            if (epics.containsKey(epicId)) {
+                Epic epic = epics.get(epicId);
+                epic.getSubtaskIds().add(subtask.getId());
+                recalculateEpicStatus(epicId);
+            }
+            return subtask.getId();
     }
 
     // Методы получения задач
